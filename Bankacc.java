@@ -10,17 +10,17 @@ public class Bankacc {
 		this.balance = 0;
 	}
 	
-/*	public void withdraw(long x)
+	public void withdraw(long x)
 	{
 		this.balance = balance - x;
-		if(history.size() < 5) {
+	/*	if(history.size() < 5) {
 		history.add(this.balance);
 		}
 		else {
 			history.removeFirst();
 			history.add(this.balance);
-		}
-	}*/
+		}*/
+	}
 	public void deposit(long y) {
 		this.balance = balance + y;
 		//if(history.size() < 5) {

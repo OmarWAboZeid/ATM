@@ -10,8 +10,11 @@ import javafx.stage.Stage;
 public class deposit{
 	Stage stage;
 	Scene depositScene;
-	Bankacc user;
+	Bankacc user4;
 	Menu menu;
+	public void setUser(Bankacc user) {
+		this.user4 = user;
+	}
 	public Scene getScene() {
 		return this.depositScene;
 	}
@@ -19,8 +22,6 @@ public class deposit{
 		this.stage = primaryStage;
 	}
 	public deposit() {
-		user = new Bankacc();
-		menu = new Menu();
 		TextField deposition = new TextField();
 		Button depositButton = new Button("Deposit");
 		Button one = new Button("1");
@@ -33,6 +34,8 @@ public class deposit{
 		Button eight = new Button("8");
 		Button nine = new Button("9");
 		Button zero = new Button("0");
+		Button clear = new Button("Clear");
+		Button remove = new Button("Remove");
 		GridPane depositpane = new GridPane();
 		depositpane.add(deposition, 0, 0);
 		depositpane.add(depositButton, 0, 1);
@@ -45,10 +48,17 @@ public class deposit{
 		depositpane.add(seven, 3, 5);
 		depositpane.add(eight, 4, 5);
 		depositpane.add(nine, 5, 5);
-		depositpane.add(zero, 6, 4);
+		depositpane.add(zero, 4, 6);
+		depositpane.add(clear, 8, 8);
+		depositpane.add(remove, 8, 11);
 		//add clear button and remove once char button
 		
-		
+		remove.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {deposition.deleteText(deposition.getLength()-1, deposition.getLength());}});
+		clear.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {deposition.clear();}});
 		//NUMBER BUTTONS FUNCTIONS
 		zero.setOnAction(new EventHandler <ActionEvent>() {
 			@Override
@@ -86,9 +96,9 @@ public class deposit{
 			@Override
 			public void handle(ActionEvent arg0) {
 				Long amount = valueOf(deposition.getText());
-				user.deposit(amount);
+				user4.deposit(amount);
 				stage.setScene(menu.getScene());
-				System.out.println(user.getBalance());
+				System.out.println(user4.getBalance());
 			}});
 		
 		depositScene = new Scene(depositpane, 800, 600);

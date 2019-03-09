@@ -15,7 +15,12 @@ public class LoginForm{
 	GUI gui;
 	Menu menu;
 	Scene loginScene;
+	Bankacc user2;
 
+	public void setUser(Bankacc user) {
+		// TODO Auto-generated method stub
+		this.user2 = user;
+	}
 	public void setMenu(Menu menu) {
 		this.menu = menu;
 	}

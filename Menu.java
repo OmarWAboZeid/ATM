@@ -7,11 +7,23 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 public class Menu{
-	Bankacc user;
 	Scene menuScene;
 	LoginForm loginform;
 	Stage stage;
 	deposit dep;
+	Bankacc user3;
+	withdraw withdrawal;
+	public void setWithdrawal(project1.withdraw withdrawal) {
+		// TODO Auto-generated method stub
+		this.withdrawal = withdrawal;
+	}
+	public Scene getScene() {
+		return this.menuScene;
+	}
+	public void setUser(Bankacc user) {
+		// TODO Auto-generated method stub
+		this.user3 = user;
+	}
 	public void setLoginform(LoginForm loginform) {
 		this.loginform = loginform;
 	}
@@ -23,8 +35,8 @@ public class Menu{
 		this.stage = primaryStage;
 	}
 	public void menuScene(){
-		user = new Bankacc();
 		dep = new deposit();
+		withdrawal = new withdraw();
 		loginform = new LoginForm();
 		Button deposit = new Button("Deposit");
 		Button withdraw = new Button("Withdraw");
@@ -43,7 +55,7 @@ public class Menu{
 		inquiry.setOnAction(new EventHandler <ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-			Label balanceLabel = new Label("Your balance is: " + user.getBalance());
+			Label balanceLabel = new Label("Your balance is: " + user3.getBalance());
 			menu.add(balanceLabel, 1, 4);
 				
 			}
@@ -57,6 +69,15 @@ public class Menu{
 			}
 			
 		});
+		withdraw.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				stage.setScene(withdrawal.getScene());
+			}
+			
+		});
 		deposit.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -66,8 +87,4 @@ public class Menu{
 			}
 		});	
 	}
-	public Scene getScene() {
-		return this.menuScene;
-	}
-
 }

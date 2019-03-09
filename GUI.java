@@ -16,18 +16,27 @@ public class GUI extends Application{
 		LoginForm loginform = new LoginForm();
 		Menu menu = new Menu();
 		deposit deposition = new deposit();
+		Bankacc user = new Bankacc();
+		withdraw withdrawal = new withdraw();
 		
+		loginform.setUser(user);
 		loginform.LoginScene();
 		menu.menuScene();
+		menu.setUser(user);
+		deposition.setUser(user);
+		withdrawal.setUser(user);
 		
 		loginform.LoginScene(primaryStage);
 		menu.menuScene(primaryStage);
 		deposition.depositScene(primaryStage);
+		withdrawal.withdrawScene(primaryStage);
 		
 		
 		loginform.setMenu(menu);
 		menu.setLoginform(loginform);
 		deposition.setMenu(menu);
+		withdrawal.setMenu(menu);
+		menu.setWithdrawal(withdrawal);
 		menu.setDeposition(deposition);
 		
 		primaryStage.setScene(loginform.getScene());
