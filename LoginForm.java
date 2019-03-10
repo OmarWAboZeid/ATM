@@ -32,8 +32,11 @@ public class LoginForm{
 		
 	}
 	public void LoginScene(){
+		//DECLARATIONS
 		validation = new Validation();
 		menu = new Menu();
+		
+		//CREATING SCENE
 		Label creditcardnumberLabel = new Label("Enter your creditcard number: ");
 		Label passwordLabel = new Label("Enter your password: ");
 		TextField creditcardnumber = new TextField();
@@ -47,7 +50,9 @@ public class LoginForm{
 		loginpane.add(passwordField, 1, 1);
 		loginpane.add(login, 2, 0);
 		loginScene = new Scene(loginpane, 800, 600);
+		//END OF SCENE
 		
+		//BUTTON FUNCTION
 		login.setOnAction(new EventHandler <ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
@@ -55,6 +60,8 @@ public class LoginForm{
 				String password = passwordField.getText();
 				boolean valid = validation.validate(creditcard, password);
 				if(valid) {
+					creditcardnumber.clear();
+					passwordField.clear();
 					stage.setScene(menu.getScene());
 				}
 				else {

@@ -95,26 +95,17 @@ public class deposit{
 		depositButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				Long amount = valueOf(deposition.getText());
+			//	Long amount = valueOf(deposition.getText());
+				String amount = deposition.getText();
 				user4.deposit(amount);
+				deposition.clear();
 				stage.setScene(menu.getScene());
-				System.out.println(user4.getBalance());
 			}});
 		
 		depositScene = new Scene(depositpane, 800, 600);
 		
 	}	
 	
-	public  Long valueOf(String text) {
-		Long x = (long) 0;
-		int j =-1;
-		for(int i = text.length()-1; i >= 0; i--)
-		{	
-			j++;
-			x = (long) (x + (text.charAt(i) - '0') * Math.pow(10, j));
-		}
-		return x;
-	}
 	public void setMenu(Menu menu2) {
 		// TODO Auto-generated method stub
 		this.menu = menu2;

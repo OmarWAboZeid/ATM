@@ -98,13 +98,15 @@ public class withdraw{
 		withdrawButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				Long amount = valueOf(withdrawal.getText());
-				if(amount > user5.getBalance()) {
+				String amount = (withdrawal.getText());
+				long h = valueOf(amount);
+				if(h > user5.getBalance()) {
 					error.setText("Please Enter a valid amount");
 					withdrawpane.add(error, 12, 12);
 				}
 				else {
 				user5.withdraw(amount);
+				withdrawal.clear();
 				stage.setScene(menu.getScene());
 				}}});
 		
